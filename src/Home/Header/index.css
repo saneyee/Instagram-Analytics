@@ -12,3 +12,8 @@
     line-height: 6rem;
     text-align: center;
 }
+
+.header .login, .header .log-out {
+    line-height: 6rem;
+    text-align: center;
+}
