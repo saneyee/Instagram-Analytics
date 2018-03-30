@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from './Home/Header/Header.jsx';
+import Home from './Home/Home.jsx';
 import Login from './Login/Login.jsx';
 import './App.css';
 
@@ -19,7 +19,6 @@ class App extends Component {
             }
         }
     }
-
     componentDidMount(){
         if(localStorage.access_token) {
             // let appData = this.state.analyticaModel.appData;
@@ -30,13 +29,20 @@ class App extends Component {
             this.setAccessToken(localStorage.access_token);
         }
     }
-
     setAccessToken = (token) => {
-        let appData = this.state.analyticaModel.appData;
-        appData.ACCESS_TOKEN = token;
-        localStorage.setItem('access_token',token);
+        let analyticaModel = this.state.analyticaModel;
+        analyticaModel.appData.ACCESS_TOKEN = token;
+        if(token !== null){
+            localStorage.setItem('access_token',token);
+        } else {
+            localStorage.removeItem('access_token');
+            analyticaModel.userInfo = null;
+            analyticaModel.userMedia = null;
+            analyticaModel.appData.ACCESS_TOKEN = null;
+        }
+
         this.setState({
-            appData : appData
+            analyticaModel : analyticaModel
         },this.getUserInfo());
     }
 
@@ -74,24 +80,27 @@ class App extends Component {
             console.log(err);
         })
     }
-
-  render() {
-      const appData = this.state.analyticaModel.appData;
+    handleLogout = () => {
+        this.setAccessToken(null);
+    }
+    render() {
+        const appData = this.state.analyticaModel.appData;
         const loginURL = `https://api.instagram.com/oauth/authorize/?client_id=${appData.CLIENT_ID}&redirect_uri=${appData.REDIRECT_URL}&response_type=token`;
-    return (
-        <Router>
-                  <div>
-                      <Route exact path="/"  render= {
-                          () => (<Header loginURL={loginURL} accessToken= {this.state.analyticaModel.appData.ACCESS_TOKEN} userInfo= {this.state.analyticaModel.userInfo}
-                          userMedia= {this.state.analyticaModel.userMedia}/>)
-                      }/>
-                      <Route exact path="/login" render= {
-                          () => (<Login setAccessToken={this.setAccessToken} />)
-                      } />
-                  </div>
-              </Router>
-    );
-  }
+        return (
+            <Router>
+                <div>
+                    <Route exact path="/"  render= {
+                        () => (<Home loginURL={loginURL}
+                            handleLogout = {this.handleLogout} accessToken= {this.state.analyticaModel.appData.ACCESS_TOKEN} userInfo= {this.state.analyticaModel.userInfo}
+                        userMedia= {this.state.analyticaModel.userMedia}/>)
+                    }/>
+                    <Route exact path="/login" render= {
+                        () => (<Login setAccessToken={this.setAccessToken} />)
+                    } />
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
