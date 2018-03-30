@@ -17,3 +17,11 @@
     line-height: 6rem;
     text-align: center;
 }
+
+.header .user-info {
+    line-height: 6rem;
+}
+
+.header .profile-pic {
+    border-radius: 50%;
+}
