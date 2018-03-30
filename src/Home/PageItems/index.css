@@ -25,6 +25,7 @@ h3 {
     height: 60vh;
     text-align: right;
     background-image: url('./back.jpg');
+    background-repeat: no-repeat;
     float: none;
 }
 
