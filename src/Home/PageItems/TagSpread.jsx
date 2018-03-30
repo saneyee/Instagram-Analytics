@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Plot from 'react-plotly.js';
-// import './index.css';
-
+import './index.css';
 class TagSpread extends Component {
 
     createTagList = () => {
@@ -28,6 +27,13 @@ class TagSpread extends Component {
 
     renderTagPage = () => {
         const tagList = this.createTagList();
+        /*let renderTagPage = [];
+        for (var i = 0; i < 10; i++) {
+            renderTagPage.push(<li key={tagList[i].tagName}>
+                #<span>{tagList[i].tagName}</span>-<span>{tagList[i].count}</span>
+            </li>);
+        }
+        return renderTagPage;*/
         let tagNames = [];
         let tagCounts = [];
         for (var i = 0; i < 10; i++) {
@@ -42,28 +48,31 @@ class TagSpread extends Component {
 
     render() {
         return (
-        <div className="col-xs-10 col-xs-offset-1 bottom-padding-large">
-            <h3>Your top 10 most used tags</h3>
-            <Plot
-                data={[
-                    {
-                        type: 'bar',
-                        x: this.renderTagPage().tagNames,
-                        y: this.renderTagPage().tagCounts,
-                        orientation: 'v'
-                    }
-                ]}
-                layout={{
-                    width: 800,
-                    height: 600,
-                    title: 'Top 10 tags used',
-                    showlegend: false
-                }}
-                config = {
-                    {staticPlot: true}
-                }
-            />
-        </div>);
+            <div className="col-xs-10 col-xs-offset-1 bottom-padding-large background-white">
+                <h3>Your top 10 most used tags</h3>
+                <hr/>
+                <div className="center-element">
+                    <Plot
+                        data={[
+                            {
+                                type: 'bar',
+                                x: this.renderTagPage().tagNames,
+                                y: this.renderTagPage().tagCounts,
+                                orientation: 'v'
+                            }
+                        ]}
+                        layout={{
+                            width: 900,
+                            height: 600,
+                            title: 'Top 10 tags used',
+                            showlegend: false
+                        }}
+                        config = {
+                            {staticPlot: true}
+                        }
+                    />
+                </div>
+            </div>);
     }
 }
 

@@ -33,7 +33,7 @@ h3 {
     line-height: 60vh;
     margin: auto 3rem;
     font-family: 'Raleway', sans-serif;
-    color: #2C6FAE;
+    color: #4A7698;
 }
 
 .landing-bottom-text {
@@ -48,5 +48,15 @@ h3 {
 }
 
 .bottom-padding-large {
-    padding-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.background-white {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px #dddddd;
+    border: 1px solid #dddddd;
+}
+
+.center-element {
+    text-align: center;
 }
