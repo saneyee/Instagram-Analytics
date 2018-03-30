@@ -13,7 +13,7 @@ class MostLikedPost extends Component {
             for(let i=0; i < 3; i++){
                 userMediaList.push(<li key={i}>
                     <div>
-                        <img src={userMedia[i].images.standard_resolution.url} height="300" alt="MostLikedPost"/>
+                        <img src={userMedia[i].images.standard_resolution.url} height="300"  alt="MostLikedPost"/>
                     </div>
                     <div>
                         <span className="like-icon"><Glyphicon glyph="heart" /> </span> {userMedia[i].likes.count}

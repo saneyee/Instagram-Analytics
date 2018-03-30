@@ -4,14 +4,16 @@ import MostLikedPost from './PageItems/MostLikedPost.jsx';
 import MostCommentedPost from './PageItems/MostCommentedPost.jsx';
 import TagSpread from './PageItems/TagSpread.jsx';
 import Landing from './PageItems/Landing.jsx';
+import './index.css';
 
 class Home extends Component {
     render() {
         const {...props} = this.props;
         return (
-            <div className="page-wrapper">
-            <Header {...props} />
-                {
+            <div>
+                <Header {...props} />
+                <div className="page-wrapper">
+                    {
                         this.props.userMedia &&
                         <div className="page-elements">
                             <MostLikedPost userMedia= {this.props.userMedia} />
@@ -19,11 +21,10 @@ class Home extends Component {
                             <TagSpread userMedia= {this.props.userMedia} />
                         </div>
                     }
-
-
+                </div>
                 {
-                        !this.props.userMedia && !window.localStorage.access_token &&
-                        <Landing />
+                    !this.props.userMedia && !window.localStorage.access_token &&
+                    <Landing />
                 }
             </div>
         );

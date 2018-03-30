@@ -41,33 +41,28 @@ class TagSpread extends Component {
     }
 
     render() {
-        return (<div className="col-xs-10 col-xs-offset-1 bottom-padding-large">
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    Your top 10 most used tags
-                </div>
-                <div className="panel-body">
-                    <Plot
-                        data={[
-                            {
-                                type: 'bar',
-                                x: this.renderTagPage().tagCounts,
-                                y: this.renderTagPage().tagNames,
-                                orientation: 'h'
-                            }
-                        ]}
-                        layout={{
-                            width: 900,
-                            height: 600,
-                            title: 'Top 10 tags used',
-                            showlegend: false
-                        }}
-                        config = {
-                            {staticPlot: true}
-                        }
-                    />
-                </div>
-            </div>
+        return (
+        <div className="col-xs-10 col-xs-offset-1 bottom-padding-large">
+            <h3>Your top 10 most used tags</h3>
+            <Plot
+                data={[
+                    {
+                        type: 'bar',
+                        x: this.renderTagPage().tagNames,
+                        y: this.renderTagPage().tagCounts,
+                        orientation: 'v'
+                    }
+                ]}
+                layout={{
+                    width: 800,
+                    height: 600,
+                    title: 'Top 10 tags used',
+                    showlegend: false
+                }}
+                config = {
+                    {staticPlot: true}
+                }
+            />
         </div>);
     }
 }
