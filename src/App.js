@@ -13,7 +13,7 @@ class App extends Component {
                 userMedia : null,
                 appData: {
                     CLIENT_ID : "800819aa47f544fda95c4ec967d044db",
-                    REDIRECT_URL :  "http://analytica-saneyee.s3-website-us-west-2.amazonaws.com/",
+                    REDIRECT_URL :  "http://analytica-saneyee.s3-website-us-west-2.amazonaws.com/login",
                     ACCESS_TOKEN: null
                 }
             }
