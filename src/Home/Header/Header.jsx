@@ -4,7 +4,7 @@ import './index.css';
 
 class Header extends Component {
     handleLoginClick = () => {
-        window.location = "/ind";
+        window.location = this.props.loginURL;
     }
 
 
