@@ -9,6 +9,7 @@ class Header extends Component {
 
 
     render() {
+        const userInfo = this.props.userInfo;
         return(
             <div className="header">
                 <div className="col-md-2 logo">
@@ -16,7 +17,7 @@ class Header extends Component {
                 </div>
 
                 <div className="col-md-8 user-info">
-                        <img className="profile-pic" src={userInfo.profile_picture} width="50" height="50" alt="uerMedia"/>
+                        <img className="profile-pic" src={userInfo.profile_picture} width="50" height="50" alt="userMedia"/>
                         <span> {userInfo.full_name} | Follwers : {userInfo.counts.followed_by} | Following: {userInfo.counts.follows} | Media {userInfo.counts.media}</span>
                 </div>
 

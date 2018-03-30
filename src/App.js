@@ -22,11 +22,12 @@ class App extends Component {
 
     componentDidMount(){
         if(localStorage.access_token) {
-            let appData = this.state.analyticaModel.appData;
-            appData.ACCESS_TOKEN = localStorage.access_token;
-            this.setState({
-                appData : appData
-            });
+            // let appData = this.state.analyticaModel.appData;
+            // appData.ACCESS_TOKEN = localStorage.access_token;
+            // this.setState({
+            //     appData : appData
+            // },this.getUserInfo());
+            this.setAccessToken(localStorage.access_token);
         }
     }
 
@@ -36,7 +37,42 @@ class App extends Component {
         localStorage.setItem('access_token',token);
         this.setState({
             appData : appData
+        },this.getUserInfo());
+    }
+
+    getUserInfo = () => {
+        const userInfoURL = `https://api.instagram.com/v1/users/self/?access_token=${this.state.analyticaModel.appData.ACCESS_TOKEN}`
+        const analyticaModel = this.state.analyticaModel;
+        fetch(userInfoURL, {
+            method: 'get'
+        }).then((response) => {
+            response.json().then((responseData) => {
+                analyticaModel.userInfo = responseData.data;
+                this.setState({
+                    analyticaModel : analyticaModel
+                });
+            });
+            this.getUserMedia();
+        }).catch((err) => {
+            console.log(err);
         });
+    }
+    getUserMedia = () => {
+        const userMediaURL = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${this.state.analyticaModel.appData.ACCESS_TOKEN}`;
+        const analyticaModel = this.state.analyticaModel;
+        fetch(userMediaURL,{
+            method: 'get'
+        }).then((response) => {
+            response.json().then((responseData) => {
+                analyticaModel.userMedia = responseData.data;
+                this.setState({
+                    analyticaModel : analyticaModel
+                });
+            });
+
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
   render() {
