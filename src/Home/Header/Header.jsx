@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
-// import './index.css';
+import './index.css';
 
 class Header extends Component {
 
