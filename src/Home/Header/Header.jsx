@@ -15,20 +15,20 @@ class Header extends Component {
                     Analytica
                 </div>
                 {
-                    (userInfo !==null) &&
+                    userInfo &&
                     <div className="col-md-8 user-info">
                         <img className="profile-pic" src={userInfo.profile_picture} width="50" height="50" alt="uerMedia"/>
                         <span> {userInfo.full_name} | Follwers : {userInfo.counts.followed_by} | Following: {userInfo.counts.follows} | Media {userInfo.counts.media}</span>
                     </div>
                 }
                 {
-                    (userInfo === null) &&
+                    !userInfo &&
                     <div className="col-md-2 col-md-offset-8 login">
                         <Button bsStyle="primary" onClick={() => this.handleLoginClick()}>Login</Button>
                     </div>
                 }
                 {
-                    (userInfo !==null) &&
+                    userInfo &&
                     <div className="col-md-2 log-out">
                         <Button bsStyle="primary" onClick={() => this.props.handleLogout()}>Logout</Button>
                     </div>

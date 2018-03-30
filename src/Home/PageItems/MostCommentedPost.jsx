@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Glyphicon} from 'react-bootstrap';
-// import './index.css';
+ import './index.css';
 
 class MostCommentedPost extends Component {
     renderMostLikedPage = () => {
