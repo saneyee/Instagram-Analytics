@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header/Header.jsx';
 import MostLikedPost from './PageItems/MostLikedPost.jsx';
-// import MostCommentedPost from './PageItems/MostCommentedPost.jsx';
+import MostCommentedPost from './PageItems/MostCommentedPost.jsx';
 // import TagSpread from './PageItems/TagSpread.jsx';
 import Landing from './PageItems/Landing.jsx';
 
@@ -15,7 +15,7 @@ class Home extends Component {
                         this.props.userMedia &&
                         <div className="page-elements">
                             <MostLikedPost userMedia= {this.props.userMedia} />
-
+                            <MostCommentedPost userMedia= {this.props.userMedia} />
                         </div>
                     }
 
