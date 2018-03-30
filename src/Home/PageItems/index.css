@@ -1,0 +1,52 @@
+/*.media-list {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    margin-left: 2rem;
+}
+
+.media-list li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1rem;
+    margin: 1rem;
+    border: 0.1rem solid #c8ced4;
+    box-shadow: 0.5rem 0.5rem 1rem #b8c2d0;
+}
+
+.like-icon {
+    font-size: 2rem;
+    color: red;
+}
+
+.landing {
+    height: 60vh;
+    text-align: right;
+    background-image: url('./back.jpg');
+    float: none;
+}
+
+.landing .landing-text {
+    font-size: 10rem;
+    line-height: 60vh;
+    margin: auto 3rem;
+    font-family: 'Raleway', sans-serif;
+    color: #4A7698;
+}
+
+.landing-bottom-text {
+    font-size: 2rem;
+    width: 100%;
+    color: #4A7698;
+    text-align: center;
+}
+
+.landing-bottom-text p {
+    margin: 5rem;
+}
+
+.bottom-padding-large {
+    padding-top: 5rem;
+}*/
