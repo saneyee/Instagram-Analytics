@@ -22,7 +22,7 @@ class Header extends Component {
 
                 <div className="col-md-2 log-out">
                         <Button bsStyle="primary" onClick={() => this.handleLoginClick()}>Logout</Button>
-                    </div>
+                </div>
             </div>
         );
     }
